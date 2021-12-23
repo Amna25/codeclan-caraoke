@@ -38,3 +38,9 @@ class TestGuest(unittest.TestCase):
     def test_guest_can_cheer(self):
         result = self.guest.cheer(self.songs)
         self.assertEqual("Whoo Hoo!", result)
+
+    def test_guest_cannot_cheer(self):
+        song = Song("Highway to hell", "Mike")
+        guest = Guest("Jim", 5, song)
+        self.assertEqual(None, guest.cheer(self.songs))
+

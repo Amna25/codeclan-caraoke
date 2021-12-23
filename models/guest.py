@@ -18,3 +18,5 @@ class Guest:
             if song.equals(self.favourite_song):
                 return "Whoo Hoo!"
         return None
+
+    
