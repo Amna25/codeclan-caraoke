@@ -35,4 +35,33 @@ class TestRoom(unittest.TestCase):
     
     def test_room_has_entry_fee(self):
         self.assertEqual(10, self.room.fee)
+
+    def test_room_add_money_to_till(self):
+        self.room.add_to_till(5)
+        self.assertEqual(5, self.room.till)
+
+    def test_can_check_in_guests(self):
+        self.room.check_in_guests(self.guest_1)
+        self.assertEqual(1, self.room.guests_count())
+
+    def test_can_check_in_multiple_guests(self):
+        self.room.check_in_guests(self.guest_1)
+        self.room.check_in_guests(self.guest_2)
+        self.assertEqual(2, self.room.guests_count())
+
+    def test_can_check_out_guests(self):
+        self.room.check_in_guests(self.guest_1)
+        self.room.check_out_guests(self.guest_1)
+        self.assertEqual(0, self.room.guests_count())
+
+    def test_can_add_song(self):
+        song = Song("Black Hill", "JJR")
+        self.room.add_song(song)
+        self.assertEqual(1, self.room.number_of_songs())
+
+
+        
+
+
+
         
